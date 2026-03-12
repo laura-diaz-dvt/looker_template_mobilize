@@ -8,68 +8,71 @@
     src: url('./fonts/noto-sans-sc-v11-latin_chinese-simplified-regular.woff2') format('woff2')
 }
 
+/* Tooltip */
 #tooltip {
     position: absolute;
-    width: auto;
-    height: auto;
     padding: 5px;
     background-color: white;
     border-radius: 4px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     pointer-events: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-size: 12px;
     z-index: 2;
 }
 
-/* Estilos Generales de la Tabla */
+/* Estructura de la Tabla */
 .reportTable {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    color: #444; /* Un gris oscuro pero suave */
+    color: #444;
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
+    background-color: white;
 }
 
-/* Encabezados: Color naranja y texto alineado a la izquierda según la imagen */
+/* Encabezados - Estilo Naranja */
 th.headerCell, 
 .headerCell.dimension, 
 .headerCell.pivot, 
-.headerCell.measure, 
-.headerCell.calculation,
-.headerCell.transposed.dimension {
-    background-color: #ffffff !important; /* Fondo blanco */
-    color: #FF5722 !important;           /* Color de fuente Naranja vibrante */
-    padding: 12px 8px;
-    font-weight: 600;
+.headerCell.measure {
+    background-color: #ffffff !important;
+    color: #FF5722 !important; /* Naranja de la imagen */
+    padding: 15px 10px;
+    font-weight: bold;
     text-align: left;
-    border-bottom: 1px solid #FFE0D3;    /* Línea sutil naranja claro */
-    border-right: none !important;
-    border-left: none !important;
+    border-bottom: 1px solid #FFE0D3;
+    border-top: none;
 }
 
-/* Celdas de Datos */
+/* Celdas de Datos - CORRECCIÓN DE VISIBILIDAD */
 .rowCell {
-    padding: 10px 8px;
-    vertical-align: middle;
-    border-bottom: 1px solid #F9F9F9;    /* Bordes muy tenues */
+    /* Cambiado de 'super' a 'baseline' para que el texto no desaparezca arriba */
+    vertical-align: baseline; 
+    padding: 12px 10px;
+    border-bottom: 1px solid #FDF2EE;
     font-size: 13px;
+    line-height: 1.2;
 }
 
-/* Alternancia de colores en las filas (Zebra striping suave) */
-.reportTable tr:nth-child(even) {
-    background-color: #FFF8F5;           /* Fondo naranja extremadamente claro */
-}
-
-.reportTable tr:hover {
-    background-color: #FFF0E9;           /* Highlight al pasar el mouse */
-}
-
+/* Específicamente para las columnas combinadas (como las primeras dos) */
 .rowCell.merged {
-    background-color: transparent !important;
+    background-color: #ffffff !important;
+    color: #444 !important;
+    font-weight: 600; /* Un poco más de peso para resaltar categorías */
 }
 
-/* Alineaciones */
+/* Alternancia de filas (Zebra striping suave) */
+.reportTable tr:nth-child(even) td:not(.merged) {
+    background-color: #FFF9F7; 
+}
+
+/* Hover para facilitar lectura */
+.reportTable tr:hover td {
+    background-color: #FFF0E9 !important;
+}
+
+/* Alineaciones y Formatos */
 .nonNumeric {
     text-align: left;
 }
@@ -79,32 +82,21 @@ th.headerCell,
     font-variant-numeric: tabular-nums;
 }
 
-/* Estados Especiales */
 .negative {
-    color: #D32F2F; /* Rojo para negativos */
+    color: #D32F2F;
 }
 
+/* Totales y Subtotales */
 .subtotal {
     font-weight: bold;
     background-color: #FFF3EF !important;
-    color: #FF5722;
 }
 
 .total {
     border-top: 2px solid #FF5722 !important;
     font-weight: bold !important;
-    background-color: #FFF3EF;
 }
 
-/* Clases de utilidad de tu código original */
 .hidden {
     display: none;
-}
-
-.focus {
-    font-weight: bold;
-}
-
-.estimate {
-    color: #9E9E9E !important;
 }
