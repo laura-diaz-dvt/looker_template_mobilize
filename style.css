@@ -14,110 +14,55 @@
     padding: 5px;
     background-color: white;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     pointer-events: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-size: 12px;
     z-index: 1000;
 }
 
-/* Estructura Principal de la Tabla */
+/* Tabla - Ahora flexible para que Looker mande */
 .reportTable {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     color: #444;
     border-collapse: collapse;
-    /* Usamos fixed para tener control total sobre los anchos */
-    table-layout: fixed; 
     width: 100%;
     background-color: white;
-    box-sizing: border-box;
 }
 
-/* Encabezados - Estilo Naranja Limpio */
+/* Encabezados - Naranja sobre Blanco */
 th.headerCell, 
 .headerCell.dimension, 
 .headerCell.pivot, 
 .headerCell.measure {
     background-color: #ffffff !important;
-    color: #FF5722 !important; /* Naranja de la imagen */
-    padding: 12px 10px;
+    color: #FF5722 !important;
+    padding: 10px 8px;
     font-weight: 700;
     text-align: left;
     border-bottom: 2px solid #FFE0D3;
-    white-space: nowrap; /* Evita que los títulos se rompan */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Añade ... si el título es muy largo */
 }
 
 /* Celdas de Datos */
 .rowCell {
-    /* Alineación superior para las categorías */
+    /* Mantenemos alineación superior para limpieza visual */
     vertical-align: top; 
-    padding: 10px;
+    padding: 10px 8px;
     border-bottom: 1px solid #FDF2EE;
     font-size: 13px;
     line-height: 1.2;
 }
 
-/* Celdas Combinadas (Categorías Principales) */
+/* Celdas Combinadas (Categorías de la izquierda) */
 .rowCell.merged {
     background-color: #ffffff !important;
     color: #333 !important;
-    font-weight: 700; /* Negrita para categorías */
+    font-weight: 700;
 }
 
-/* DEFINICIÓN DE ANCHOS DE COLUMNAS (Total 100%) */
-
-/* 1. Recovery Date */
-th.headerCell.dimension.indexCol-0, 
-td.rowCell.indexCol-0 { 
-    width: 15%; 
-}
-
-/* 2. Recovery Type */
-th.headerCell.dimension.indexCol-1, 
-td.rowCell.indexCol-1 { 
-    width: 15%; 
-}
-
-/* 3. Source System */
-th.headerCell.dimension.indexCol-2, 
-td.rowCell.indexCol-2 { 
-    width: 10%; 
-}
-
-/* 4. Contract Number */
-th.headerCell.dimension.indexCol-3, 
-td.rowCell.indexCol-3 { 
-    width: 15%; 
-}
-
-/* 5. Impaye Date */
-th.headerCell.measure.indexCol-4, 
-td.rowCell.indexCol-4 { 
-    width: 12%; 
-}
-
-/* 6. Impayed Amount */
-th.headerCell.measure.indexCol-5, 
-td.rowCell.indexCol-5 { 
-    width: 12%; 
-}
-
-/* 7. % Éxito */
-th.headerCell.measure.calculation.indexCol-6, 
-td.rowCell.indexCol-6 { 
-    width: 10%; 
-}
-
-/* Espacio residual para evitar errores de cálculo (si lo hay) */
-th.headerCell.residualCol {
-    width: 11%;
-}
-
-/* Alternancia de filas */
+/* Alternancia de color en filas (Zebra) */
 .reportTable tr:nth-child(even) td:not(.merged) {
-    background-color: #FFF9F7; 
+    background-color: #FFF9F7;
 }
 
 /* Hover */
@@ -125,7 +70,7 @@ th.headerCell.residualCol {
     background-color: #FFF0E9 !important;
 }
 
-/* Alineaciones */
+/* Alineaciones de datos */
 .nonNumeric {
     text-align: left;
 }
@@ -135,7 +80,12 @@ th.headerCell.residualCol {
     font-variant-numeric: tabular-nums;
 }
 
-/* Totales */
+/* Totales y Subtotales */
+.subtotal {
+    font-weight: bold;
+    color: #FF5722;
+}
+
 .total {
     border-top: 2px solid #FF5722 !important;
     font-weight: bold !important;
