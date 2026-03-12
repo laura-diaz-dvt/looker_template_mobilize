@@ -8,7 +8,6 @@
     src: url('./fonts/noto-sans-sc-v11-latin_chinese-simplified-regular.woff2') format('woff2')
 }
 
-/* Tooltip */
 #tooltip {
     position: absolute;
     padding: 5px;
@@ -21,58 +20,63 @@
     z-index: 2;
 }
 
-/* Estructura de la Tabla */
 .reportTable {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     color: #444;
     border-collapse: collapse;
-    table-layout: fixed;
+    /* Cambiamos a auto para que las columnas se ajusten mejor al contenido */
+    table-layout: auto; 
     width: 100%;
     background-color: white;
 }
 
-/* Encabezados - Estilo Naranja */
+/* Encabezados */
 th.headerCell, 
 .headerCell.dimension, 
 .headerCell.pivot, 
 .headerCell.measure {
     background-color: #ffffff !important;
-    color: #FF5722 !important; /* Naranja de la imagen */
-    padding: 15px 10px;
+    color: #FF5722 !important;
+    padding: 12px 8px;
     font-weight: bold;
     text-align: left;
-    border-bottom: 1px solid #FFE0D3;
-    border-top: none;
+    border-bottom: 2px solid #FFE0D3;
+    white-space: nowrap; /* Evita que los títulos se rompan en dos líneas */
 }
 
-/* Celdas de Datos - CORRECCIÓN DE VISIBILIDAD */
+/* Celdas de Datos */
 .rowCell {
-    /* Cambiado de 'super' a 'baseline' para que el texto no desaparezca arriba */
-    vertical-align: baseline; 
-    padding: 12px 10px;
+    /* Alineación superior para que las categorías no "floten" en el medio */
+    vertical-align: top; 
+    padding: 10px 8px;
     border-bottom: 1px solid #FDF2EE;
     font-size: 13px;
-    line-height: 1.2;
 }
 
-/* Específicamente para las columnas combinadas (como las primeras dos) */
+/* Ajuste de espacio para las primeras columnas (Dimensiones) */
+.rowCell.merged, 
+.headerCell.dimension {
+    width: 1%; /* El navegador le dará el mínimo espacio necesario para el texto */
+    white-space: nowrap; /* Evita espacios vacíos innecesarios */
+    padding-right: 20px; /* Margen de seguridad entre columnas */
+}
+
+/* Texto en negrita para las categorías principales (como en tu imagen) */
 .rowCell.merged {
-    background-color: #ffffff !important;
-    color: #444 !important;
-    font-weight: 600; /* Un poco más de peso para resaltar categorías */
+    font-weight: 700;
+    color: #333;
 }
 
-/* Alternancia de filas (Zebra striping suave) */
+/* Alternancia de filas */
 .reportTable tr:nth-child(even) td:not(.merged) {
-    background-color: #FFF9F7; 
+    background-color: #FFF9F7;
 }
 
-/* Hover para facilitar lectura */
 .reportTable tr:hover td {
     background-color: #FFF0E9 !important;
 }
 
-/* Alineaciones y Formatos */
+/* Alineaciones */
 .nonNumeric {
     text-align: left;
 }
@@ -82,16 +86,7 @@ th.headerCell,
     font-variant-numeric: tabular-nums;
 }
 
-.negative {
-    color: #D32F2F;
-}
-
-/* Totales y Subtotales */
-.subtotal {
-    font-weight: bold;
-    background-color: #FFF3EF !important;
-}
-
+/* Totales */
 .total {
     border-top: 2px solid #FF5722 !important;
     font-weight: bold !important;
