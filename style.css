@@ -94,9 +94,10 @@ th.headerCell,
     display: none;
 }
 
-/* Celdas con número negativo */
-.rowCell[data-value^="-"] {
-    color: #D32F2F;
-    font-weight: bold;
-    background-color: #FFEBEE;
+/* Selector para span.negative dentro de cualquier celda */
+.rowCell span.negative {
+    color: #D32F2F !important;           /* rojo fuerte */
+    font-weight: bold !important;        /* opcional */
+    background-color: #FFEBEE !important; /* opcional, fondo suave rojo */
 }
+
