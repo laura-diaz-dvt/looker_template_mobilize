@@ -101,3 +101,10 @@ th.headerCell,
     background-color: #FFEBEE !important; /* opcional, fondo suave rojo */
 }
 
+td[data-value^="-"], 
+div[data-value^="-"], 
+span[data-value^="-"] {
+    color: #D32F2F !important;
+    font-weight: bold !important;
+    background-color: #FFEBEE !important;
+}
