@@ -94,9 +94,9 @@ th.headerCell,
     display: none;
 }
 
-/* Formato condicional: valores negativos */
-.rowCell.negative {
-    color: #D32F2F;           /* rojo fuerte */
-    font-weight: bold;        /* opcional */
-    background-color: #FFEBEE; /* opcional, fondo suave rojo */
+/* Celdas con número negativo */
+.rowCell[data-value^="-"] {
+    color: #D32F2F;
+    font-weight: bold;
+    background-color: #FFEBEE;
 }
